@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>记一个Terraria的奇妙好东西</title>
+      <link href="2021/01/19/%E8%AE%B0%E4%B8%80%E4%B8%AATerraria%E7%9A%84%E5%A5%87%E5%A6%99%E5%A5%BD%E4%B8%9C%E8%A5%BF/"/>
+      <url>2021/01/19/%E8%AE%B0%E4%B8%80%E4%B8%AATerraria%E7%9A%84%E5%A5%87%E5%A6%99%E5%A5%BD%E4%B8%9C%E8%A5%BF/</url>
+      
+        <content type="html"><![CDATA[<p>HI!</p><p>这里是CHINQ啊，Terraria有个奇妙的东西</p><p>就是在旅途模式下的官方作弊的东西（鬼知道Terraria官方为什么要开发这个），反正特别强就是了</p><p>可是旅途模式只能在旅途地图使用，那么有没有什么办法把在旅途模式的作弊插件放到普通地图（除旅途外的所有类型地图）使用呢？</p><p>官方肯定是不允许你这样做的，但是，有一种东西，它叫：</p><p><strong>人物存档修改器</strong>…</p><hr><p>在旅途模式里，有很多作弊用的东西，就拿这个<code>God Mode</code>举例子，这玩意就相当于锁血，锁蓝（就是不掉血，不消耗魔法啦），那么这个东西要怎么带到别的地图使用呢？接着往下看吧！</p><p><a href="https://yal.cc/r/terrasavr/"><strong>Terrasavr</strong></a>————YellowAfterLife大佬开发的一个人物存档修改器，有网页端和客户端（<strong>不是广告</strong>）</p><blockquote><p>注: 因为是外国服务器，可能需要梯子，梯子请自备</p></blockquote><p>网站上有部分汉化的简体中文，字体也使用了Terraria的风格（只有英文才是），主界面是这样的：</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/01/19/RyCJeAWa82HSYIw.png" alt="image.png"></p><p>选择加载存档：</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/01/19/d73BAFfYT9XK52z.png" alt="image.png"></p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/01/19/v28W5cr3gpV1Bwi.png" alt="image.png"></p><blockquote><p>不要在意我这个人物存档，乱改的，这里我只说说怎么把旅途模式的<code>God Mode</code>（其他同理）允许在其他存档使用</p></blockquote><hr><p>首先先在Terraria创建一个旅途人物，随便进入一个地图，把<code>God Mode</code>打开，保存并退出，接着你就可以找到你的人物存档是一个叫做：</p><p><code>name.plr</code>的文件（不知道存档在哪里的见上面的图）</p><p>我们将这个文件载入到Terrasavr中，并将其模式修改为除旅途模式的任意一个其他模式：</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/01/19/Bjn2mzG6Mrp8hEs.png" alt="image.png"></p><p>然后保存存档，将该存档覆盖你的老存档，现在即可进入其他世界体验旅途的快乐（不是）了！</p><p>因为旅途模式的<code>God Mode</code>并不依赖旅途使用，所以只修改模式并不会影响它的使用</p><p>总结：<br>创建旅途存档，把想要的作弊模式打开，<br>导入存档至Terrasavr，把模式修改为旅途之外，<br>保存存档，覆盖之前的老存档，<br>大功告成！</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 水 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Terraria </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>什么是RSA?</title>
       <link href="2021/01/18/%E4%BB%80%E4%B9%88%E6%98%AFRSA/"/>
       <url>2021/01/18/%E4%BB%80%E4%B9%88%E6%98%AFRSA/</url>
