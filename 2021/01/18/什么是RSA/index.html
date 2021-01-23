@@ -11,7 +11,11 @@
 <meta property="article:author" content="CHINQ">
 <meta property="article:tag" content="RSA">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/01/18/OWyajCkRILPJ8n1.png"><link rel="shortcut icon" href="https://cdn.chinq.xyz/avatar.png"><link rel="canonical" href="https://www.chinq.xyz/2021/01/18/%E4%BB%80%E4%B9%88%E6%98%AFRSA/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://i.loli.net/2021/01/18/OWyajCkRILPJ8n1.png"><link rel="shortcut icon" href="https://cdn.chinq.xyz/avatar.png"><link rel="canonical" href="https://www.chinq.xyz/2021/01/18/%E4%BB%80%E4%B9%88%E6%98%AFRSA/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-F2CJGQ4HP7"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-F2CJGQ4HP7');
+</script><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -400,7 +404,7 @@ var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
   selectors: pjaxSelectors,
   cacheBust: false,
-  analytics: false,
+  analytics: true,
   scrollRestoration: false
 })
 
@@ -421,7 +425,7 @@ document.addEventListener('pjax:complete', function () {
   typeof panguInit === 'function' && panguInit()
 
   if (typeof gtag === 'function') {
-    gtag('config', '', {'page_path': window.location.pathname});
+    gtag('config', 'G-F2CJGQ4HP7', {'page_path': window.location.pathname});
   }
 
   typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()

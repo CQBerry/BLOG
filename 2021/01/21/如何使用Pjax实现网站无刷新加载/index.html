@@ -11,7 +11,11 @@
 <meta property="article:author" content="CHINQ">
 <meta property="article:tag" content="pjax">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/01/21/UuIkFnxwKPh9DvQ.png"><link rel="shortcut icon" href="https://cdn.chinq.xyz/avatar.png"><link rel="canonical" href="https://www.chinq.xyz/2021/01/21/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Pjax%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E6%97%A0%E5%88%B7%E6%96%B0%E5%8A%A0%E8%BD%BD/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+<meta name="twitter:image" content="https://i.loli.net/2021/01/21/UuIkFnxwKPh9DvQ.png"><link rel="shortcut icon" href="https://cdn.chinq.xyz/avatar.png"><link rel="canonical" href="https://www.chinq.xyz/2021/01/21/%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8Pjax%E5%AE%9E%E7%8E%B0%E7%BD%91%E7%AB%99%E6%97%A0%E5%88%B7%E6%96%B0%E5%8A%A0%E8%BD%BD/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-F2CJGQ4HP7"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-F2CJGQ4HP7');
+</script><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
@@ -648,7 +652,7 @@ var pjax = new Pjax({
   elements: 'a:not([target="_blank"])',
   selectors: pjaxSelectors,
   cacheBust: false,
-  analytics: false,
+  analytics: true,
   scrollRestoration: false
 })
 
@@ -669,7 +673,7 @@ document.addEventListener('pjax:complete', function () {
   typeof panguInit === 'function' && panguInit()
 
   if (typeof gtag === 'function') {
-    gtag('config', '', {'page_path': window.location.pathname});
+    gtag('config', 'G-F2CJGQ4HP7', {'page_path': window.location.pathname});
   }
 
   typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
