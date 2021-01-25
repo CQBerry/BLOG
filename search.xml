@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>勾股定理的验证</title>
+      <link href="2021/01/25/%E5%8B%BE%E8%82%A1%E5%AE%9A%E7%90%86%E7%9A%84%E9%AA%8C%E8%AF%81/"/>
+      <url>2021/01/25/%E5%8B%BE%E8%82%A1%E5%AE%9A%E7%90%86%E7%9A%84%E9%AA%8C%E8%AF%81/</url>
+      
+        <content type="html"><![CDATA[<p>今天我们来验证一下勾股定理(<del>因为实在是没有东西写了</del>)吧: </p><p>勾股定理(Pythagorean Theorem): </p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/01/25/TpOUMjy7PaLVGgZ.png"></p><p>如上图所示，，在直角三角形ABC当中，</p><p>$$ a^2\ +\ b^2\ =\ c^2 $$</p><p>也就是说，出除了斜边之外的两条边的长度的平方<code>^2</code>相加 = 斜边长度的平方</p><hr><p>不管你是否记得勾股定理都不要紧，要紧的是，对这个定理进行验证之后，你感受到了什么，又学到了什么</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/01/25/lKjiSrQLxCNwZoT.png"></p><p>如上图所示，将四个直角三角形拼接在一起，形成一个边长为 $(a\ +\ b)$ 的大正方形，当中还有一个边长为 $c$ 的小正方形，让我们来看一下他们的面积：</p><p>大正方形的面积 = 小正方形的面积 + 直角三角形的面积 × 4 …❤</p><p>我们可以得出如上这样的一个答案</p><p>接下来，让我们用英文字符来表示面积：</p><ul><li><p>大正方形的面积为：$(a\ +\ b)^2$</p></li><li><p>小正方形的面积为：$c^2$</p></li><li><p>直角三角形的面积为：$a\ \times\ b\ \div\ 2\ =\ \frac{ab}{2}$</p></li></ul><p>我们将这些面积带入到❤号方程式当中去，得出：</p><p>$$(a\ +\ b)^2\ =\ c^2\ +\ \frac{ab}{2}\ \times\ 4\ =\ c^2\ +\ 2ab$$</p><p>然后我们再对等号左边的 $(a\ +\ b)^2$ 进行展开：</p><p>$$(a\ +\ b)^2\ =\ a^2\ +\ 2ab\ +\ b^2$$</p><blockquote><p>如果你没有掌握乘法公式的话，$(a\ +\ b)\ (a\ +\ b)\ =a^2\ +\ ab\ +\ ab\ +\ b^2$<br>那么你可以像这样实际计算一下，从而得到确认</p></blockquote><p>接下来将展开之后的 $(a\ +\ b)^2$ 带入到❤号方程式当中去：</p><p>$$a^2\ +\ 2ab\ +\ b^2\ =\ c^2\ +\ 2ab$$</p><p>最终得出：</p><p>$$ a^2\ +\ b^2\ =\ c^2 $$</p><p>至此，对勾股定理的验证就完成了，顺便还复习了一下乘法公式，一举两得，<del>岂不美哉(应该是水了一篇文章很爽)</del></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 数学 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 勾股定理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>关于Hexo-Deploy的问题</title>
       <link href="2021/01/23/%E5%85%B3%E4%BA%8EHexo-Deploy%E7%9A%84%E9%97%AE%E9%A2%98/"/>
       <url>2021/01/23/%E5%85%B3%E4%BA%8EHexo-Deploy%E7%9A%84%E9%97%AE%E9%A2%98/</url>
