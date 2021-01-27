@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>如何在家测量光速</title>
+      <link href="2021/01/27/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%AE%B6%E6%B5%8B%E9%87%8F%E5%85%89%E9%80%9F/"/>
+      <url>2021/01/27/%E5%A6%82%E4%BD%95%E5%9C%A8%E5%AE%B6%E6%B5%8B%E9%87%8F%E5%85%89%E9%80%9F/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>几天前在网络上看到一个在家里精准测光速的视频，挺有趣的，分享给大家</p></blockquote><h3 id="材料"><a href="#材料" class="headerlink" title="材料"></a>材料</h3><table><thead><tr><th>材料</th><th>份</th></tr></thead><tbody><tr><td>长度大于10CM的巧克力</td><td>2</td></tr><tr><td>—</td><td>—</td></tr><tr><td>牙签</td><td>2</td></tr><tr><td>—</td><td>—</td></tr><tr><td>盘子</td><td>1</td></tr><tr><td>—</td><td>—</td></tr><tr><td>微波炉</td><td>1</td></tr><tr><td>—</td><td>—</td></tr><tr><td>直尺</td><td>1</td></tr></tbody></table><h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol><li><p>检查好巧克力🍫后，装盘放入微波炉中，大火加热25秒，注意不要让盘子转动</p></li><li><p>取出巧克力，观察融化明显的部分，用牙签标记出来，标记两处</p></li><li><p>用直尺测出两根牙签之间的距离，这里我们假设为6CM</p><p> <img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/01/27/Auc6OvxnRPH7BaK.png"></p></li></ol><p>可以看到融化的点在微波的波峰和波谷之间，所以波长等于两倍的牙签之间的距离</p><p>$$0.06\ \times\ 2\ =\ 0.12m$$</p><p>这其实是微波炉产生的驻波，两股方向相反的频率波长相同波相遇，停留不动，半个周期波峰波谷换位置，导致波峰波谷区域食物加热效率快与其他区域</p><ol start="4"><li>查看微波炉的频率，假设微波炉的频率为 2450MHZ </li></ol><p>根据波速的公式：波长 × 频率 = 波速</p><p>可以计算出波速等于:</p><p>$$0.12\ \times\ 2450000000\ =\ 294000000m/s$$</p><p>接近标准国际真空光速: 299792458m/s</p><h3 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h3><p>微波炉标准微博波长为12.2厘米，一半是6.1厘米，所以理论建议实验用巧克力大于7CM就够用了</p><p>多实验几次，找更标准的尺子，这个值会更精准</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 干货 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 光速 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>什么是Cookie</title>
       <link href="2021/01/27/%E4%BB%80%E4%B9%88%E6%98%AFCookie/"/>
       <url>2021/01/27/%E4%BB%80%E4%B9%88%E6%98%AFCookie/</url>
