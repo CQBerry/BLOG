@@ -5029,7 +5029,7 @@ _:future,
   z-index: 22;
 }
 #waline-wrap textarea {
-  background: url("/image/comment_bg.png") 100% 100% no-repeat;
+  background: url("/img/comment_bg.png") 100% 100% no-repeat;
 }
 #waline-wrap textarea:focus {
   background-image: none;
