@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>为什么应该在Linux上使用命名管道</title>
+      <link href="2021/02/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BA%94%E8%AF%A5%E5%9C%A8Linux%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93/"/>
+      <url>2021/02/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BA%94%E8%AF%A5%E5%9C%A8Linux%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本文作者<a href="https://www.zhihu.com/org/linuxzhong-guo">Linux中国</a>，转载自<a href="https://zhuanlan.zhihu.com/p/33641576">知乎</a>，转载时有改动</p></blockquote><hr><blockquote><p>命名管道并不常用，但是它们为进程间通讯提供了一些有趣的特性</p></blockquote><p>看了上一篇文章后，我估计每一位 Linux 使用者都熟悉使用 “|” 符号将数据从一个进程传输到另一个进程的操作。它使用户能简便地从一个命令输出数据到另一个命令，并筛选出想要的数据而无须写脚本进行选择、重新格式化等操作</p><p>还有另一种管道，虽然也叫 “管道” 这个名字却有着非常不同的性质。即您可能尚未使用甚至尚未知晓的 —— 命名管道</p><p>普通管道与命名管道的一个主要区别就是命名管道是以文件形式实实在在地存在于文件系统中的，没错，它们表现出来就是文件。但是与其它文件不同的是，命名管道文件似乎从来没有文件内容。即使用户往命名管道中写入大量数据，该文件看起来还是空的</p><h3 id="如何在-Linux-上创建命名管道"><a href="#如何在-Linux-上创建命名管道" class="headerlink" title="如何在 Linux 上创建命名管道"></a>如何在 Linux 上创建命名管道</h3><p>在我们研究这些空空如也的命名管道之前，先追根溯源来看看命名管道是如何被创建的。您应该使用名为 <code>mkfifo</code> 的命令来创建它们。为什么提及 “FIFO”? 是因为命名管道也被认为是一种 FIFO 特殊文件。术语 “FIFO” 指的是它的先进先出 first-in, first-out 特性。如果你将冰淇淋盛放到碟子中，然后可以品尝它，那么你执行的就是一个LIFO（后进先出 last-in, first-out 操作。如果你通过吸管喝奶昔，那你就在执行一个 FIFO 操作。好，接下来是一个创建命名管道的例子</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ mkfifo mypipe</span><br><span class="line">$ ls -l mypipe</span><br><span class="line">prw-r-----. 1 shs staff 0 Jan 31 13:59 mypipe</span><br></pre></td></tr></table></figure><p>注意一下特殊的文件类型标记 “p” 以及该文件大小为 0。您可以将重定向数据写入命名管道文件，而文件大小依然为 0</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&quot;Can you read this?&quot;</span> &gt; mypipe</span><br></pre></td></tr></table></figure><p>正如上面所说，敲击回车后似乎什么都没有发生（LCTT 译注：没有返回命令行提示符）</p><p>另外再开一个终端，查看该命名管道的大小，依旧是 0：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ls -l mypipe</span><br><span class="line">prw-r-----. 1 shs staff 0 Jan 31 13:59 mypipe</span><br></pre></td></tr></table></figure><p>也许这有违直觉，用户输入的文本已经进入该命名管道，而你仍然卡在输入端。你或者其他人应该等在输出端，并准备读取放入管道的数据。现在让我们读取看看</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cat mypipe</span><br><span class="line">Can you <span class="built_in">read</span> this?</span><br></pre></td></tr></table></figure><p>一旦被读取之后，管道中的内容就没有了。</p><p>另一种研究命名管道如何工作的方式是通过将放入数据的操作置入后台来执行两个操作（将数据放入管道，而在另外一段读取它）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">&quot;Can you read this?&quot;</span> &gt; mypipe &amp;</span><br><span class="line">[1] 79302</span><br><span class="line">$ cat mypipe</span><br><span class="line">Can you <span class="built_in">read</span> this?</span><br><span class="line">[1]+ Done <span class="built_in">echo</span> <span class="string">&quot;Can you read this?&quot;</span> &gt; mypipe</span><br></pre></td></tr></table></figure><p>一旦管道被读取或”耗干”，该管道就清空了，尽管我们还能看见它并再次使用。可为什么要费此周折呢？</p><h3 id="为何要使用命名管道？"><a href="#为何要使用命名管道？" class="headerlink" title="为何要使用命名管道？"></a>为何要使用命名管道？</h3><p>命名管道很少被使用的理由似乎很充分。毕竟在 Unix 系统上，总有多种不同的方式完成同样的操作。有多种方式写文件、读文件、清空文件，尽管命名管道比它们来得更高效</p><p>值得注意的是，命名管道的内容驻留在内存中而不是被写到硬盘上。数据内容只有在输入输出端都打开时才会传送。用户可以在管道的输出端打开之前向管道多次写入。通过使用命名管道，用户可以创建一个进程写入管道并且另外一个进程读取管道的流程，而不用关心协调二者时间上的同步</p><p>用户可以创建一个单纯等待数据出现在管道输出端的进程，并在拿到输出数据后对其进行操作。下列命令我们采用 tail 来等待数据出现</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ tail -f mypipe</span><br></pre></td></tr></table></figure><p>一旦供给管道数据的进程结束了，我们就可以看到一些输出。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ tail -f mypipe</span><br><span class="line">Uranus replicated to WCDC7</span><br><span class="line">Saturn replicated to WCDC8</span><br><span class="line">Pluto replicated to WCDC9</span><br><span class="line">Server replication operation completed</span><br></pre></td></tr></table></figure><p>如果研究一下向命名管道写入的进程，用户也许会惊讶于它的资源消耗之少。在下面的 ps 命令输出中，唯一显著的资源消耗是虚拟内存（VSZ 那一列）</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ps u -P 80038</span><br><span class="line">USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMAND</span><br><span class="line">shs 80038 0.0 0.0 108488 764 pts/4 S 15:25 0:00 -bash</span><br></pre></td></tr></table></figure><p>命名管道与 Unix/Linux 系统上更常用的管道相比足以不同到拥有另一个名号，但是 “管道” 确实能反映出它们如何在进程间传送数据的形象，故将称其为”命名管道”还真是恰如其分。也许您在执行操作时就能从这个聪明的 Unix/Linux 特性中获益匪浅呢</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 干货 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>介绍Linux中的管道和命名管道</title>
+      <link href="2021/02/01/%E4%BB%8B%E7%BB%8DLinux%E4%B8%AD%E7%9A%84%E7%AE%A1%E9%81%93%E5%92%8C%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93/"/>
+      <url>2021/02/01/%E4%BB%8B%E7%BB%8DLinux%E4%B8%AD%E7%9A%84%E7%AE%A1%E9%81%93%E5%92%8C%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>本文作者<a href="https://www.zhihu.com/org/linuxzhong-guo">Linux中国</a>，转载自<a href="https://zhuanlan.zhihu.com/p/44181732">知乎</a>，转载时有改动</p></blockquote><hr><blockquote><p>要在命令间移动数据？使用管道可使此过程便捷</p></blockquote><p>在 Linux 中，pipe 能让你将一个命令的输出发送给另一个命令。管道，如它的名称那样，能重定向一个进程的标准输出、输入和错误到另一个进程，以便于进一步处理</p><p>“管道”（或称“未命名管道”）命令的语法是在两个命令之间加上 <code>|</code> 字符：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Command-1 | Command-2 | ...| Command-N</span><br></pre></td></tr></table></figure><p>这里，该管道不能通过另一个会话访问；它被临时创建用于接收 <code>Command-1</code> 的执行并重定向标准输出。它在成功执行之后删除</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/02/01/mxLiDzw81euvpGJ.jpg"></p><p>在上面的示例中，contents.txt 包含特定目录中所有文件的列表 —— 具体来说，就是 <code>ls -al</code> 命令的输出。我们首先通过管道（如图所示）使用 “file” 关键字从 contents.txt 中 <code>grep</code> 文件名，因此 <code>cat</code> 命令的输出作为 <code>grep</code> 命令的输入提供。接下来，我们添加管道来执行 <code>awk</code> 命令，该命令显示 <code>grep</code> 命令的过滤输出中的第 9 列。我们还可以使用 <code>wc -l</code> 命令计算 contents.txt 中的行数</p><p>只要系统启动并运行或直到它被删除，命名管道就可以持续使用。它是一个遵循 <code>FIFO</code>（先进先出）机制的特殊文件。它可以像普通文件一样使用。也就是，你可以写入，从中读取，然后打开或关闭它。要创建命名管道，命令为：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfifo &lt;pipe-name&gt;</span><br></pre></td></tr></table></figure><p>这将创建一个命名管道文件，它甚至可以在多个 shell 会话中使用</p><p>创建 <code>FIFO</code> 命名管道的另一种方法是使用此命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mknod p &lt;pipe-name&gt;</span><br></pre></td></tr></table></figure><p>要重定向任何命令的标准输出到其它命令，请使用 &gt; 符号。要重定向任何命令的标准输入，请使用 &lt; 符号</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/02/01/qwK3GD8b7QaizNe.png"></p><p>如上所示，<code>ls -al</code> 命令的输出被重定向到 contents.txt 并插入到文件中。类似地，tail 命令的输入通过 &lt; 符号从 contents.txt 读取</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/02/01/pBFTrVOWMcDljHY.png"></p><p>这里，我们创建了一个命名管道 my-named-pipe，并将 <code>ls -al</code> 命令的输出重定向到命名管道。我们可以打开一个新的 shell 会话并 <code>cat</code> 命名管道的内容，如前所述，它显示了 <code>ls -al</code> 命令的输出。请注意，命名管道的大小为零，并有一个标志 “p”</p><p>因此，下次你在 Linux 终端上使用命令并在命令之间移动数据时，希望管道使这个过程快速简便</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 干货 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MathJax基础语法</title>
       <link href="2021/01/30/Mathjax%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/"/>
       <url>2021/01/30/Mathjax%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/</url>
