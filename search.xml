@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>更换Linux系统更新源</title>
+      <link href="2021/02/05/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%BA%90/"/>
+      <url>2021/02/05/%E6%9B%B4%E6%8D%A2Linux%E7%B3%BB%E7%BB%9F%E6%9B%B4%E6%96%B0%E6%BA%90/</url>
+      
+        <content type="html"><![CDATA[<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Linux、类Linux系统都是用叫做 <strong>Package Manager</strong> 用来管理软件包的，这里我以<strong>Ubuntu 18.04</strong>为例介绍一下如何使用命令来安装软件包</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install pk-name</span><br></pre></td></tr></table></figure><p>随便安装一个软件包，会发现速度不是很慢就是根本连接失败，那难道就没有别的办法了吗？</p><hr><h3 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h3><p>其实，我们可以对系统进行切换源操作，图形界面的Ubuntu在设置里会自带切换源的方式，不过命令行就需要手动切换了👇</p><p>系统里有一个文件用来专门处理软件源的，我们首先复制该文件，命令如下👇</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak</span><br></pre></td></tr></table></figure><p>接下来我们使用文本编辑器将其修改，这里推荐使用nano编辑器，可以通过<code>apt install nano</code>来安装，如果因为网络安装不了，也可以使用自带的<code>vim</code></p><p>删除原来的所有内容，将以下内容选择一个复制进去: </p><blockquote><p>⚠警告：下列软件源只适用于 Ubuntu 18.04，如因为版本使用错误等问题本人概不负责，可以自行尝试使用.bak还原</p></blockquote><h4 id="阿里源"><a href="#阿里源" class="headerlink" title="阿里源"></a>阿里源</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-proposed main restricted universe multiverse</span><br><span class="line">deb http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src http://mirrors.aliyun.com/ubuntu/ bionic-backports main restricted universe multiverse</span><br></pre></td></tr></table></figure><h4 id="清华源"><a href="#清华源" class="headerlink" title="清华源"></a>清华源</h4><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-updates main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-backports main restricted universe multiverse</span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ bionic-security main restricted universe multiverse</span><br></pre></td></tr></table></figure><p>编辑好后保存退出，使用</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br></pre></td></tr></table></figure><p>来更新软件源，这样就替换好啦</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 干货 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 教程 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>为什么应该在Linux上使用命名管道</title>
       <link href="2021/02/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BA%94%E8%AF%A5%E5%9C%A8Linux%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93/"/>
       <url>2021/02/01/%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BA%94%E8%AF%A5%E5%9C%A8Linux%E4%B8%8A%E4%BD%BF%E7%94%A8%E5%91%BD%E5%90%8D%E7%AE%A1%E9%81%93/</url>
