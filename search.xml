@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>你为什么需要OLED?</title>
+      <link href="posts/68da90b7.html"/>
+      <url>posts/68da90b7.html</url>
+      
+        <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>OLED 是最近厂商宣传自家新品手机肯定会说到的一个词，那么到底什么是 OLED? 它的原理又是什么?</p><p>OLED 是个简称，全称为 Organic Light-Emitting Diode ，中文叫有机自发光二级管，又叫有机电激发光显示，是由法国人和美国人在 1950 ~ 1960 年左右研发出的一种新型显示技术，并在之后由美国柯达和英国剑桥大学加以研究，最后在 21 世纪被日本的索尼，韩国的三星、LG，中国的华星光电等公司批量生产</p><p>OLED 显示器依驱动方式的不同又可分为被动式（Passive Matrix，PMOLED）与主动式（Active Matrix，AMOLED）</p><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>OLED 基本结构是由一薄而透明具半导体特性之铟锡氧化物（ITO），与电力之正极相连，再加上另一个金属阴极，包成如三明治的结构。整个结构层中包括了：电洞传输层（HTL）、发光层（EL）与电子传输层（ETL）。当电力供应至适当电压时，阳极电洞与阴极电子便会在发光层中结合，产生光子，依其材料特性不同，产生红、绿和蓝三原色，构成基本色彩。OLED的特性是自发光，不像薄膜晶体管液晶显示器需要背光，因此可视度和亮度均高，且无视角问题，其次是驱动电压低且省电效率高，加上反应快、重量轻、厚度薄，构造简单，成本低等，被视为 21 世纪最具前途的产品之一</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/03/16/SKGTrILhvONekQR.png"></p><h2 id="特色"><a href="#特色" class="headerlink" title="特色"></a>特色</h2><p>Wikipedia 上对 OLED 的特色介绍</p><ul><li>OLED 核心可以做得很薄，厚度为目前液晶的 1/3，加上有机发光半导体为全固态组件，抗震性好，能适应恶劣环境</li><li>OLED 主要是自体发光的，让其几乎没有视角问题；与 LCD 技术相比，即使在大的角度观看，显示画面依然清晰可见。OLED 的组件为自发光且是依靠电压来调整，反应速度要比液芯片件来得快许多，比较适合当作高清电视使用。2007 年底 SONY 推出的 11 吋 有机发光半导体电视 XEL-1 ，反应速度就比 LCD 快了 1000 倍</li><li>OLED 对低温的适应能力强。旧有的液晶技术在零下75度时，即会破裂故障，有机发光半导体只要电路未受损仍能正常显示</li><li>OLED 的效率高，耗能较液晶略低还可以在不同材质的基板上制造，甚至能成制作成可弯曲的显示器(例如曲面屏手机)，应用范围日渐增广</li><li>OLED 可以再屏幕下方塞下一些元器件，比如指纹识别模块（屏下指纹），摄像头（屏下摄像头）等</li></ul><p>说到底，你为什么需要 OLED? OLED 对比 LCD 又有哪些强项?</p><h2 id="LCD-简介"><a href="#LCD-简介" class="headerlink" title="LCD 简介"></a>LCD 简介</h2><p>LCD 也是简称，全称为 liquid-crystal display，中文液晶显示器，LCD 相比 其它显示器也很省电，但和 OLED 根本就不是一个级别的，LCD 的工作原理和 OLED 大不相同，OLED 是可以单独控制每个像素的发光进行合成颜色，而 LCD 是在底部放上一层背光板，在上方放上偏光片和彩色(Red Green Blue)滤色片，通过改变电压调节背光板亮度，和改变颜色滤色片的打开关闭程度来合成颜色</p><h2 id="LCD-vs-OLED"><a href="#LCD-vs-OLED" class="headerlink" title="LCD vs. OLED"></a>LCD vs. OLED</h2><p>因为 OLED 和 LCD 的工作原理大相迳庭，所以导致了这两种显示方式有很大的差距，比如：</p><ul><li>OLED 比 LCD 屏幕的响应时间小，可以控制在 1ms 以内，甚至可以是 LCD 的千分之一</li><li>OLED 控制的是每个像素的发光，也就是说，黑色就可以显示为纯黑色（不发光），而 LCD 只要有一个像素点显示就要打开背光，当然现在有些最新的技术，就是把 LCD 底部的背光板分割成很多区块，控制每个区块的发光，不过肯定还是比不上 OLED 的控制每个像素，这也间接导致了 OLED 比 LCD 省电</li><li>OLED 的厚度可以做得很小、很轻，因此同体积的手机，使用 OLED 的可以再手机机身里塞下更多东西，重量反而更轻，而 LCD 不行</li><li>OLED 内部是固体结构，相比 LCD 的液晶，会更抗摔一些</li><li>OLED 会比 LCD 更耐低温、耐高温一些</li><li>OLED 能在不同材质的基板上制作，可以弯曲，也就有了现在的曲面屏手机，而 LCD 只能做直屏</li><li>OLED 因为工作原理，所以对比度要远远高于 LCD</li><li>OLED 的 HDR 效果很好，因为其可以控制局部亮度，使整体显示效果相比 LCD 有很大提升，不过这也仅仅限于显示 HDR 内容时</li></ul><p>不过 LCD 也不完全没有优点，有点还是有的，比如：</p><ul><li>LCD 不会烧屏，因为他的显示原理和 OLED 恰恰相反，OLED “烧屏” 是因为在显示了一个静止图像很长时间后留在屏幕上的残影，而这个残影是无法消除的，而 LCD 就不会有这个烦恼，因为他不管显示什么，都是由彩色滤色片控制的，和背光板没有联系</li><li>LCD 不会频闪，因为他使用 DC 调光方式，而 OLED 的调光方式是 PWM 调光，就是通过快速亮灭来调节屏幕的亮度，所以会频闪严重，虽然现在 OLED 也有所谓的 “DC 调光”，不过那只是厂家的宣传方式手段之一，只不过是通过硬件或算法的方式让屏幕亮灭速度更快来达到 “DC 调光” 的效果罢了</li><li>LCD 的分辨率可以做得很高，因为每个彩色滤色片可以做得很小</li><li>LCD 的功耗比 OLED 低</li><li>LCD 的色彩还原十分准确</li><li>LCD 的寿命长，彩色滤光片几乎不会损坏，而背光板也可以更换</li><li>LCD 的造价便宜，成本低，导致了 OLED 屏幕手机普遍要比 LCD 的贵</li></ul><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>总之，两种显示方式各有自己的优缺点，而 OLED 才是「下一代」显示方式对比 LCD 有很大的潜力可以被发掘，也因为曲面屏的普及，LCD 在日常生活中的应用也渐渐地少了起来，若 OLED 能吸收 LCD 的优点，取长补短，必会普及到生活中的其他地方，而不仅仅限于手机、平版电脑、电视上</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 干货 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 科普 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>为什么 0.1 + 0.2 不等于 0.3?</title>
       <link href="posts/ffeccec5.html"/>
       <url>posts/ffeccec5.html</url>
