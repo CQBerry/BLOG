@@ -19,7 +19,7 @@ gtag('config', 'G-F2CJGQ4HP7');
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -59,7 +59,7 @@ gtag('config', 'G-F2CJGQ4HP7');
   isHome: false,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2021-03-17 19:07:13'
+  postUpdate: '2021-03-29 20:49:17'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -246,9 +246,11 @@ document.addEventListener('pjax:complete', function () {
   typeof chatBtnFn === 'function' && chatBtnFn()
   typeof panguInit === 'function' && panguInit()
 
-  if (typeof gtag === 'function') {
-    gtag('config', 'G-F2CJGQ4HP7', {'page_path': window.location.pathname});
-  }
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-F2CJGQ4HP7', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
   typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
 

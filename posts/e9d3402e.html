@@ -21,7 +21,7 @@ gtag('config', 'G-F2CJGQ4HP7');
   localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   noticeOutdate: undefined,
-  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -167,7 +167,7 @@ gtag('config', 'G-F2CJGQ4HP7');
     if (fontSizeVal !== undefined) {
       document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
     }
-    })(window)</script><link rel="stylesheet" href="/css/beautify.min.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.chinq.xyz/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐室</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/02/01/8gM9NzvnqdheEU7.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CHINQBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐室</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">为什么应该在Linux上使用命名管道</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-01T06:16:34.000Z" title="发表于 2021-02-01 14:16:34">2021-02-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-08T09:33:18.955Z" title="更新于 2021-02-08 17:33:18">2021-02-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B9%B2%E8%B4%A7/">干货</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/e9d3402e.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/e9d3402e.html" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+    })(window)</script><link rel="stylesheet" href="/css/beautify.min.css"><meta name="generator" content="Hexo 5.3.0"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://cdn.chinq.xyz/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐室</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2021/02/01/8gM9NzvnqdheEU7.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">CHINQBlog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> 音乐室</span></a></div><div class="menus_item"><a class="site-page" href="/comment/"><i class="fa-fw fa fa-comments"></i><span> 留言板</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">为什么应该在Linux上使用命名管道</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-02-01T06:16:34.000Z" title="发表于 2021-02-01 14:16:34">2021-02-01</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-02-08T09:33:18.955Z" title="更新于 2021-02-08 17:33:18">2021-02-08</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%B9%B2%E8%B4%A7/">干货</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="为什么应该在Linux上使用命名管道"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/posts/e9d3402e.html#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/posts/e9d3402e.html" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
 <p>本文作者<a target="_blank" rel="noopener" href="https://www.zhihu.com/org/linuxzhong-guo">Linux中国</a>，转载自<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33641576">知乎</a>，转载时有改动</p>
 </blockquote>
 <hr>
@@ -241,7 +241,7 @@ window.addEventListener('load',preloader.endLoading())</script><div class="js-pj
   }
 }</script><script>function loadValine () {
   function initValine () {
-    let initData = {
+    const valine = new Valine(Object.assign({
       el: '#vcomment',
       appId: 'rdgsph0Gn6neP4mw06BhEO5Y-gzGzoHsz',
       appKey: 'hrqvBxhjsAb9LvzJ7uwu4xEU',
@@ -257,19 +257,12 @@ window.addEventListener('load',preloader.endLoading())</script><div class="js-pj
       enableQQ: true,
       path: window.location.pathname,
       master: "ae8d1cace85925db35165a15d31f36e1",
-      friends: ["47794b14c4a0cf2d706eadbae7f2b489"]
-    }
-
-    if (true) { 
-      initData.requiredFields= ('nick,mail'.split(','))
-    }
+      friends: ["47794b14c4a0cf2d706eadbae7f2b489"],
+      requiredFields: ["nick,mail"],
+      visitor: false
+      
+    }, null))
     
-    if (false) {
-      const otherData = false
-      initData = Object.assign(initData, otherData)
-    }
-    
-    const valine = new Valine(initData)
   }
 
   if (typeof Valine === 'function') initValine() 
@@ -285,21 +278,15 @@ if ('Valine' === 'Valine' || !false) {
   }
 }</script><script>function loadWaline () {
   function initWaline () {
-    let initData = {
+    const waline = new Waline(Object.assign({
       el: '#waline-wrap',
       serverURL: 'https://waline.chinq.xyz/',
       avatar: 'robohash',
       path: location.pathname,
       emojiCDN: 'https://cdn.jsdelivr.net/gh/Dreamy-TZK/iemotion-pic@latest/img/酷安/',
       emojiMaps: {"酷安-1":"1.png","酷安-10":"10.png","酷安-11":"11.png","酷安-12":"12.png","酷安-13":"13.png","酷安-14":"14.png","酷安-15":"15.png","酷安-16":"16.png","酷安-17":"17.png","酷安-18":"18.png","酷安-2":"2.png","酷安-3":"3.png","酷安-4":"4.png","酷安-5":"5.png","酷安-6":"6.png","酷安-7":"7.png","酷安-8":"8.png","酷安-9":"9.png","酷安-aixin":"aixin.png","酷安-aoman":"aoman.png","酷安-baiyan":"baiyan.png","酷安-baoquan":"baoquan.png","酷安-bishi":"bishi.png","酷安-caidao":"caidao.png","酷安-chigua":"chigua.png","酷安-ciya":"ciya.png","酷安-coshuaji":"coshuaji.png","酷安-diaoxie":"diaoxie.png","酷安-doge":"doge.png","酷安-dogehechi":"dogehechi.png","酷安-dogexiaoku":"dogexiaoku.png","酷安-dogeyuanliangta":"dogeyuanliangta.png","酷安-doujiyanhuaji":"doujiyanhuaji.png","酷安-erha":"erha.png","酷安-erhading":"erhading.png","酷安-fadai":"fadai.png","酷安-fanu":"fanu.png","酷安-hahaha":"hahaha.png","酷安-haixiu":"haixiu.png","酷安-han":"han.png","酷安-hehe":"hehe.png","酷安-heiha":"heiha.png","酷安-heixian":"heixian.png","酷安-hejiu":"hejiu.png","酷安-hongyaowan":"hongyaowan.png","酷安-huaixiao":"huaixiao.png","酷安-huaji":"huaji.png","酷安-huanhu":"huanhu.png","酷安-huoba":"huoba.png","酷安-jingya":"jingya.png","酷安-jizhi":"jizhi.png","酷安-keai":"keai.png","酷安-kelian":"kelian.png","酷安-koubi":"koubi.png","酷安-ku":"ku.png","酷安-kuan":"kuan.png","酷安-kuanlvmao":"kuanlvmao.png","酷安-liuhanhuaji":"liuhanhuaji.png","酷安-liulei":"liulei.png","酷安-lvmao":"lvmao.png","酷安-lvyaowan":"lvyaowan.png","酷安-meigui":"meigui.png","酷安-miaomiao":"miaomiao.png","酷安-mojinghuaji":"mojinghuaji.png","酷安-naikezui":"naikezui.png","酷安-nanguo":"nanguo.png","酷安-nb":"nb.png","酷安-ok":"ok.png","酷安-pen":"pen.png","酷安-penxue":"penxue.png","酷安-piezui":"piezui.png","酷安-pu":"pu.png","酷安-pyjiaoyi":"pyjiaoyi.png","酷安-qiang":"qiang.png","酷安-qinqin":"qinqin.png","酷安-qqdoge":"qqdoge.png","酷安-ruo":"ruo.png","酷安-se":"se.png","酷安-shounuehuaji":"shounuehuaji.png","酷安-shui":"shui.png","酷安-tuosai":"tuosai.png","酷安-tushe":"tushe.png","酷安-weiqu":"weiqu.png","酷安-weiweiyixiao":"weiweiyixiao.png","酷安-weixiao":"weixiao.png","酷安-wozuimei":"wozuimei.png","酷安-wulian":"wulian.png","酷安-wunai":"wunai.png","酷安-wuyu":"wuyu.png","酷安-wuzuixiao":"wuzuixiao.png","酷安-xiaoku":"xiaoku.png","酷安-xiaoyan":"xiaoyan.png","酷安-xinsui":"xinsui.png","酷安-ye":"ye.png","酷安-yinxian":"yinxian.png","酷安-yiwen":"yiwen.png","酷安-zaijian":"zaijian.png","酷安-zhoumei":"zhoumei.png"},
-    }
-    
-    if (false) {
-      const otherData = false
-      initData = Object.assign(initData, otherData)
-    }
-    
-    const waline = new Waline(initData)
+      visitor: false
+    }, null))
   }
 
   if (typeof Waline === 'function') initWaline() 
@@ -354,9 +341,11 @@ document.addEventListener('pjax:complete', function () {
   typeof chatBtnFn === 'function' && chatBtnFn()
   typeof panguInit === 'function' && panguInit()
 
-  if (typeof gtag === 'function') {
-    gtag('config', 'G-F2CJGQ4HP7', {'page_path': window.location.pathname});
-  }
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-F2CJGQ4HP7', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
 
   typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
 
