@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>HTTPS 原理解析</title>
+      <link href="posts/341c55b.html"/>
+      <url>posts/341c55b.html</url>
+      
+        <content type="html"><![CDATA[<p>这个世界出现了 HTTPS , 是出于隐私和安全考虑的, 假如这个世界没有 HTTPS , 而只有使用明文传输的 HTTP 会怎么样:</p><h2 id="明文"><a href="#明文" class="headerlink" title="明文"></a>明文</h2><hr><p>我们首先想象出一个 客户端(C)和服务端(S)</p><p>然后 C 向 S 明文传输了一个数据, 叫做 data(未加密)</p><p>这个 data 是以明文的方式存在于网络之中, 假如这时一个黑客(hacker)杀了进来</p><p>这个 hacker 很容易就可以获取到这个 data, 那假如这个 data 是你的账户密码, hacker 可以很轻松的把你的钱全部转走</p><p>显然这种方式是不可取的, 尤其是在电子货币高度发达的今天</p><hr><h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><hr><p>防止 hacker 再次把你的密码获取, 你有一个算法(f_1), 并且有一个密钥(k)</p><p>那么你现在传输数据, 首先会计算加密后的数据</p><blockquote><p>加密后的数据 = f_1(k, data) = x_1</p></blockquote><p>那么这个 f_1 还有一个兄弟算法叫做 f_2</p><blockquote><p>原 data = f_2(k, x_1) = data</p></blockquote><p>了解了对称加密的基本原理后, 我们在回到刚才的传输过程</p><p>C 向 S 索要 k</p><p>C 把加密好的 x_1 发送给 S , S 可以使用 k 解密</p><p>假如这时又有一个 hacker 杀了进来, 截获到了 x_1 , 但是 hacker 不知道 k 也就无法得知 data</p><p>但真的是这样吗?</p><p>S 在制定 k 的时候不可能知道一共有多少个客户端, 也不可能为每一个客户端都量身订制一个 k , 也就是说这个 k 只能有一个</p><p>问题来了, S 不知道 hacker 是黑客, 照样会老老实实的把 k 告诉 hacker , 那么 hacker 有了 k , 自然可以把 x_1 解密出 data</p><p>如果每个人都用相同的 k 做密钥, 那么加密毫无意义</p><hr><h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><hr><p>你现在有一个算法(f)和公钥(pk), 服务端(S)拥有私钥(sk)和公钥(pk)且只有服务端知道私钥</p><blockquote><p>公钥加密data: f(pk,data) = x<br>私钥解密x: f(sk,x) = data<br>私钥加密data: f(sk,data) = x’<br>公钥解密x’: f(pk,x’) = data</p></blockquote><p>首先 C 向 S 索取 pk</p><p>C 加密 data ( <code>f(pk,data)</code> ) 得到 x , 并发送给 S </p><p>S 通过 sk 解密 x 得到 data ( <code>f(sk,x) = data</code> )</p><p>这个过程看似很完美, hacker 截取到 x , 但因为没有 sk 所以无法解密</p><p>但是这个过程有一个致命的缺点, 就是 S 如何向 C 发送数据</p><p>S 向 C 发送数据肯定不能使用 pk 加密, 要不然就和对称加密一样了, 那么只能使用 sk 加密出 x’</p><p>S 向 C 发送 x’</p><p>C 使用 pk 解密出 data</p><p>这里犯了和对称加密一样的错误, 因为 hacker 也可以拿到 pk , 因为 pk 人人可以拿到, 所以非对称加密也是不可行的</p><hr><p>有一群聪明的数学家从对称加密和非对称加密中获取了灵感, 分析了它们的缺点</p><p>对称加密的缺点是 k 只能有一个, 否则就是完美无缺的</p><p>非对称加密的缺点是 S 向 C 传输数据的过程</p><p>这群数学家想出了一个近乎完美的解决办法, 就那就是将二者结合起来</p><hr><h2 id="对称-非对称"><a href="#对称-非对称" class="headerlink" title="对称 + 非对称"></a>对称 + 非对称</h2><hr><p>首先, S 拥有 pk &amp; sk</p><p>C 向 S 索取 pk</p><p>C 生成一个字符串(num1)</p><p>C 使用 pk 加密 num1 发送给 S, 假设它叫 y</p><p>然后 S 对 y 使用 sk 解密出 num1</p><p>这个 num1 就作为之后加密用的 k</p><p>S 通知 C 协商完毕, 之后的加密都使用 num1(k)</p><p>传输数据过程就变为和对称加密一样, 只不过 k 变成了临时协商的 num1</p><p>因为 num1 是临时协商的, 所以 hacker 截获到了 密文(x) 也无法解密</p><p>但这并不是无懈可击的, 我们的 hacker 脑洞大开, 想出了一种新的解决办法</p><hr><h2 id="中间人攻击"><a href="#中间人攻击" class="headerlink" title="中间人攻击"></a>中间人攻击</h2><hr><p>在 C 向 S 索取 pk 之前, hacker比他们还快一步，充当了一个假的 S 向 C 提供 pk’</p><blockquote><p>因为不是 S 的 pk 我们把 hacker 的 pk 叫做 pk’</p></blockquote><p>C 以为获取到了 pk 很开心, 很快就生成了 num1</p><p>hacker 装扮成好人, 去找 S 索取 pk</p><p>然后 C 把 num1 使用 pk’ 加密为 yy(和y区分), 发送给 hacker</p><p>hacker 拿到 yy 后使用自己的 sk’ 解密出 num1 后, 依旧演戏, 通知 C 协商完毕, 后面的加密使用 num1</p><p>然后 hacker 做了第二手打算, 充当自己是无辜的良民, 使用刚才获取到的 pk 把 num1 加密发送给 S</p><p>S 不知道是 hacker 的请求, 还傻乎乎的通知 hacker 协商成功</p><p>之后 C 向 hacker 发送加密数据 x, hacker 也向 S 发送 x</p><p>S 向 hacker 返回 x’, hacker 向 C 返回 x’</p><p>且因为 hacker 获取到了 num1, 过程中所有数据 hacker 都可以解密</p><p>假如你向小明转账 1000元, hacker 就可以把收款人改成自己, 并且向你返回错误的信息让你误以为转账成功</p><p>那么有没有什么办法可以避免中间人问题呢</p><p>我们分析一下, C 在向 S 获取 pk 的第一步, hacker 就已经截胡, 这就导致 C 认为 hacker 就是 S</p><hr><h2 id="对称-非对称-CA"><a href="#对称-非对称-CA" class="headerlink" title="对称 + 非对称 +  CA"></a>对称 + 非对称 +  CA</h2><hr><p>解决中间人问题其实也很简单，我们引入一个权威的 CA 机构</p><p>因为 C 向 hacker 请求 pk 不知道这个 pk 其实是 pk’, 所以我们可以让 CA 把这个 pk 认证一下, 只有通过的才是真正的 pk, 否则就是 hacker 的 pk’</p><p>首先 CA 有公钥和私钥, 我们管它们叫 cpk &amp; csk</p><p>然后 S 也有公私钥 pk &amp; sk</p><p>CA 把使用 csk 加密过的 pk 办法给 S, 我们称之为 licence(lic)(证书)</p><p>C 就不请求 pk 了, 而是向 S 请求 lic</p><p>那么 C 只要得到了 cpk 就可以解密出原来的 pk 了(和非对称加密原理类似)</p><p>那么 C 向 CA 去获取 cpk 的过程中依旧有可能会被 hacker 拦截, 那么怎么办?</p><p>其实并不需要去找 CA 请求, 因为 cpk 早就存放在了 C 的操作系统中</p><blockquote><p>补充一下, hacker 也是可以拿到 pk 的, 因为 hacker 本身可以是 C</p></blockquote><p>再来看,  C 生成 num1 并使用 pk 加密, 假如这时 hacker 变成了中间人</p><p>C 向 hacker 发送加密后的 y, 因为 hacker 只有 pk 所以不能解密, 也就对 y 无能为力, 更不能解密过程中的任何数据</p><hr><h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><hr><p>这里我们以访问 bilibili 为例</p><ol><li><p>小明向 bilibili 发送请求, 请求中包含的数据有 “本机支持的SSL版本”、”非对称算法”、”num1”</p></li><li><p>bilibili 知道了请求, 把 “要使用的SSL版本”、”对称算法”、”num2”定了下来, 和 lic 一起打包发送给小明</p></li><li><p>小明去认证 bilibili 发送来的 lic, 如果真实有效则继续, 否则终止(或浏览器提示证书有问题)</p></li><li><p>小明向 bilibili 发送数据, 包含 “num3”、”使用hash加密后的1和2步的所有数据(假如是xx)”</p></li><li><p>bilibili 验证 xx 是否等于 hash(1, 2), 如果不等于代表是 hacker 上传的数据, bilibili 如果验证是小明本人, 则把 num1、num2和num3 生成一个 k</p></li><li><p>bilibili 向小明发送数据 hash(1, 2, 4)(假如是zz)</p></li><li><p>因为小明参与了之前的交互，所以可以验证 zz 是否是 hash(1, 2, 4), 如果是, 小明也使用 num1、num2和num3 生成一个 k, 因为算法一致, 小明的k 和 bilibili的k 应该是一致的</p></li></ol><p>至此协商过程完毕, 双方可以放心进行数据传输</p><hr>]]></content>
+      
+      
+      <categories>
+          
+          <category> 干货 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 科普 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Git命令：git-stash</title>
       <link href="posts/328cd509.html"/>
       <url>posts/328cd509.html</url>
