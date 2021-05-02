@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Termux 的妙用</title>
+      <link href="posts/f084d9a6.html"/>
+      <url>posts/f084d9a6.html</url>
+      
+        <content type="html"><![CDATA[<p>Termux 想必大家都不陌生, 是一款在 Android 上出色的终端工具, 可以做一些计算量不高的小工作, 但是它其实还有别的用处, 就比如下面这个: </p><hr><h2 id="搭建文件服务器"><a href="#搭建文件服务器" class="headerlink" title="搭建文件服务器"></a>搭建文件服务器</h2><p>一想到要把文件从手机电脑上互传就头疼, 文件传输助手等工具的步骤又过于繁琐, 怎么办?</p><p>可能你会想到用数据线把手机电脑连接起来, 或者通过某某网盘进行传输</p><p>其实完全没有必要, 家里都有无线局域网吧, 我们可以通过局域网传输(该方法仅限单向)</p><ul><li><p>首先, 你需要在手机上下载好 <a href="https://termux.com/">Termux</a></p></li><li><p>接着, 替换 pkg(apt) 的源, 这里以清华(Tuna)源为例子</p></li></ul><hr><p>下载 nano 文本编辑器: <code>pkg install nano</code></p><p>更换默认文本编辑器为 nano: <code>export EDITOR=nano</code></p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/05/02/iGWTplF8g5MDKtY.jpg"><br>换源, 把<code>http://mirrors.tuna.tsinghua.edu.cn/termux</code>覆盖掉原来的: <code>apt edit-sources</code></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 连接远程仓库, 获取软件包信息</span><br><span class="line">pkg update</span><br><span class="line"></span><br><span class="line"># 更新本地已经安装的软件包</span><br><span class="line">pkg upgrade</span><br></pre></td></tr></table></figure><p>换好后使用命令更新一遍</p><hr><p>现在我们就可以正式开始了, 首先赋予 Termux 读取存储空间的权限, 使用命令: <code>termux-setup-storage</code></p><p>会弹出一个对话框, 我们点击允许(始终允许)</p><p>这样会在当前目录下生成一个叫 <code>storage</code> 的子目录, 该目录就会是我们文件服务器的根目录</p><h3 id="安装-Python"><a href="#安装-Python" class="headerlink" title="安装 Python"></a>安装 Python</h3><p>这里以 Python 搭建 http-server 为例, 首先安装 Python: <code>pkg install python</code></p><p>回到 <code>~/storage</code> 目录: <code>cd ~/storage</code></p><p>使用命令开启 http-server: <code>python -m http.server [port]</code></p><blockquote><p>[port] 为端口号, 可以省略, 默认为 8000</p></blockquote><p>开好后会显示如下信息: </p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/05/02/vK26bzX3joYVp4I.jpg"></p><p>这就代表开启成功了, 现在去手机设置里找到手机的 <code>IPv4</code> 地址, 开头一般为 <code>192.168</code>, 我的是 <code>192.168.18.9</code></p><p>那么我们在浏览器地址栏输入 192.168.18.9:[port] 即可访问(前提是手机和电脑处在同一个局域网内)</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/05/02/M7IvtT4pEuYxfyZ.png"></p><p>获取文件的同时会在终端上显示日志, 方便查看(图上展示的为连接成功的日志, 并非传输文件的日志)</p><p><img src= "/img/loading.gif" data-lazy-src="https://i.loli.net/2021/05/02/g3tMwyrcL7p2BO1.jpg"></p><blockquote><p>你可能会疑惑, 明明自己手机根目录的文件比文件服务器上显示出来的多的多, 为什么文件服务器上只有几个文件夹, 那是因为手机的根目录在 <code>shared/</code> 这个目录下, 进去会显示隐藏文件, 你会看到一堆平常没有看过的文件夹</p></blockquote><blockquote><p>尾注: 该篇文章的手机截图里的 Termux 我使用了 oh-my-zsh, 有需要我可以出一篇如何在 Termux 上安装 oh-my-zsh 的教程</p></blockquote><p>(End)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 干货 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>HTTPS 原理解析</title>
       <link href="posts/341c55b.html"/>
       <url>posts/341c55b.html</url>
