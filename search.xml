@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>在 Android S(12) 中的一些较大的改变</title>
+      <link href="posts/1712c7b9.html"/>
+      <url>posts/1712c7b9.html</url>
+      
+        <content type="html"><![CDATA[<p><strong>Google I/O 21’</strong> 在最近线上举行, 有很多内容在这次大会中提到, 最重要的, 肯定还是最近关于 <strong>Android S</strong> 的一些<strong>开发细节</strong>。</p><p>我看完了整场 I/O 大会, 总结出了 <strong>Android 12</strong> 的 <strong>3</strong> 大改变: <strong>样式</strong> / <strong>隐私</strong> / <strong>系统底层</strong></p><h2 id="样式"><a href="#样式" class="headerlink" title="样式"></a>样式</h2><p>倘若把 <strong>UI</strong> 看作一个产品的话, 美观度、设计感也是一个重中之重的要素</p><p>到底多重要呢？</p><p>当我看完 <strong>Google I/O 2021</strong> 大会后, 在脑子里回荡的并不是 <strong>Google</strong> 的 <strong>AI 赋能</strong>有多强, <strong>AI 学习</strong>有多厉害, 也没有感叹到 <strong>Google</strong> 会携手三星欲重振 <strong>Wear OS</strong>, 欲与 <strong>Apple Watch</strong> 分庭抗礼。印象最深的是 <strong>Google</strong> 为 <strong>Android 12</strong> 所设计的<strong>新设计语言 Material You</strong></p><p>大概是这么重要吧, 虽只惊鸿一瞥, 但足以深入脑海</p><p>玩到了极致的个性化</p><p>往年的每个 <strong>Android</strong> 大版本都会在 <strong>UI</strong> 上做出<strong>一点细节</strong>的改动, 以迎合<strong>当下交互</strong>或者 <strong>App 设计</strong>上的<strong>潮流</strong>。而早在 <strong>2014</strong> 年诞生的 <strong>Material Design</strong> 在 <strong>Google</strong> 不断的<strong>推动改进</strong>下, 一直用到了 <strong>Android 11</strong></p><p><strong>Material Design</strong> 的设计语言从早期的<strong>卡片式设计</strong>、<strong>纸张的模拟</strong>、<strong>强烈对比色</strong>, 渐渐演变成现在的<strong>多变的形状</strong>、<strong>配色</strong>以及<strong>针对全面屏的优化适应</strong>等等</p><p>到了 <strong>Android 12</strong> 上的 <strong>Material You</strong>, 实则它也是由 <strong>Material Design</strong> 演化而来, 也算是几年来 <strong>UI</strong> 细节改动的<strong>量到质</strong>的改动, 从名字上就可以看出, <strong>Android 12</strong> 的 <strong>UI</strong> 开始回归「个性化」。</p><p>相对于封闭的 <strong>iOS, Android</strong> 自诞生起, 强调的是开源, 打的就是个性化这张牌。经历与 <strong>Android 10</strong> 非常相似 <strong>Android 11</strong> 升级之后, <strong>Google</strong> 终于在外观上<strong>大刀阔斧</strong>。</p><p>从 <strong>Google I/O</strong> 大会上给到的信息来看, <strong>Android 12</strong> 外观上的「个性化」是以壁纸为中心, 「动态调色板」能够从壁纸中提取相关的颜色, 并添加上互补色从而生成动态主题, 由此来说, 每部 <strong>Pixel</strong> 都会有着<strong>极为个性</strong>的主题呈现方式</p><p>桌面上的小部件也有了改变, <strong>Android 12</strong> <strong>强制小部件圆角</strong>, 这使得用户看到的都是圆角, 不会存在太大的<strong>割裂感</strong>。形状依旧维持 <strong>Android 11</strong> 形态, 但 <strong>Android 12 Beta 1</strong> 重构了小部件的菜单, <strong>组织的层级关系更好</strong>, 选择更<strong>方便</strong></p><p>在动效上, <strong>Android 12</strong> 的<strong>非线性过渡</strong>用的更多, 更<strong>贴近自然和直觉</strong>。系统级的滚动特效升级到了「过渡滚动」效果, 包括垂直和水平滚动双向, 取代以前 <strong>Android</strong> 版本中的发光效果</p><p><strong>下拉菜单</strong></p><p>下拉菜单的快速设置区域内的按钮变得更大, 整体呈圆角矩形, 所能呈现更多的信息, 一目了然, 按钮更大也可以方便的定位和触控。只是默认情况下只有四个选项可以查看, 相对于 <strong>Android 11</strong> 来说是减少了, 这个设计算是一个取舍</p><p><strong>新锁屏时钟</strong></p><p>默认没有通知的情况下, <strong>Android 12 Beta 1</strong> 的锁屏时钟设计在屏幕中央, 采用了<strong>更大</strong>的字体, 更为醒目。<del>(超爱!!)</del></p><p><strong>新的信息聚合通知</strong></p><p>在有一系列通知后, 屏幕的主角就变成「通知」, 而时钟就被「挤」到屏幕的左上角。当把这些通知消除之后, 时钟会「膨胀」至屏幕中央, 成为主角</p><p><strong>新的「过渡滚动」动效</strong></p><p>在设置菜单中, 当你滑动到边界时, 整个菜单列表会「非线性伸展」, 表示到达边界, 相对于以前的发光特效, 要来的更为直觉。不过现在「过渡滚动」特效还只是系统级的, 并没有扩展到 <strong>App</strong> 内, 比如 <strong>Chrome</strong> </p><h2 id="隐私"><a href="#隐私" class="headerlink" title="隐私"></a>隐私</h2><p>在 <strong>Android 12</strong> 中, 谷歌引入了 <strong>Android</strong> <strong>私有计算核心</strong>, <strong>增强保护用户个人信息的安全性</strong>、<strong>私密性</strong>。私有计算核心实现了<strong>实时字幕</strong>、<strong>智能回复</strong>等功能。所有的音频和语言处理都发生在设备上, <strong>与网络隔离</strong>, 以<strong>保护你的隐私</strong>。与 <strong>Android</strong> 系统的其他部分一样, 私有计算核心的保护措施是<strong>开源</strong>的, 完全可以由安全社区检查和验证</p><p>有意思的是, 通过 <strong>Android 12</strong>, 用户可以控制自己的汽车。谷歌表示, 当前正在与汽车制造商合作在 <strong>Android 12</strong> 中开发一个新的数字汽车钥匙, 通过这个功能, 用户能够从自己的手机上锁定、解锁, 甚至启动汽车</p><p><strong>Android 12</strong> 延续此前 <strong>Android</strong> 版本在系统隐私上的所做的努力, 新的<strong>隐私仪表板（Privacy Dashboard）</strong>会以时间线的形式展示应用们<strong>调用位置、麦克风、摄像头、剪切板等敏感动作</strong><del>(绝对不是什么见者有份之类的)</del></p><h2 id="系统底层"><a href="#系统底层" class="headerlink" title="系统底层"></a>系统底层</h2><p>除了个性化、隐私, <strong>Android 12</strong> 也优化了底层性能占用, 让整个系统变得<strong>更轻快、灵敏</strong></p><h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><p><strong>Beta 1</strong> 并非完全兑现了 <strong>Android 12</strong> 所有的新功能, 外观上「<strong>动态调色板</strong>」并未现身。而隐私上的麦克风、相机调用提示, 和快速设置切换界面也未能上线。长按电源激活 <strong>Google Assistant</strong> 功能也没有出现, 依旧是关机、重启等选项（此功能会在 Beta 2 版本上线）</p><p>关于隐私, Beta 1 延续的是 Android 11 的设置页面, 新的隐私仪表板（Privacy Dashboard）也要等到 Beta 2 版本才会出现在系统之中</p><p>最后放出 <strong>Android 12</strong> 官方宣传片</p><iframe src="https://player.bilibili.com/player.html?bvid=BV1yh411v7Sj" width="800px" height="600px"> </iframe>]]></content>
+      
+      
+      <categories>
+          
+          <category> 干货 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Android </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Termux 的妙用</title>
       <link href="posts/f084d9a6.html"/>
       <url>posts/f084d9a6.html</url>
